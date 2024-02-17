@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/upload', methods=['POST'])
 def upload_file():
     file = request.files['image']
-    filename = 'uploaded_image.png'
+    filename = 'uploaded_image.jpg'
     file.save(filename)
     MIN_MATCH_COUNT = 10
     # Загрузка исходного изображения и изображения для сравнения
