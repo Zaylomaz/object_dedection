@@ -8,12 +8,15 @@ app = Flask(__name__)
 @app.route('/upload', methods=['POST'])
 def upload_file():
     file = request.files['image']
-    filename = 'uploaded_image.jpg'
+    filename = 'uploaded_image.png'
     file.save(filename)
     MIN_MATCH_COUNT = 10
     # Загрузка исходного изображения и изображения для сравнения
-    img1 = cv2.imread('DALL3.png', cv2.IMREAD_GRAYSCALE)  # Исходное изображение
-    img2 = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)  # Загруженное изображение
+    img1 = cv2.imread('DALL3.png')  # Исходное изображение
+    img2 = cv2.imread(filename)
+
+    img1 = np.array(img1.convert('L'))
+    img2 = np.array(img2.convert('L'))
 
     # Инициализация SIFT детектора
     sift = cv2.SIFT_create()
