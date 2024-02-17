@@ -2,6 +2,7 @@ from flask import Flask, request, send_from_directory
 import cv2
 import numpy as np
 import os
+from PIL import Image
 
 app = Flask(__name__)
 
