@@ -13,8 +13,8 @@ def upload_file():
     file.save(filename)
     MIN_MATCH_COUNT = 10
     # Загрузка исходного изображения и изображения для сравнения
-    img1 = cv2.imread('DALL3.png')  # Исходное изображение
-    img2 = cv2.imread(filename)
+    img1 = Image.open('DALL3.png')  # Исходное изображение
+    img2 = Image.open(filename)
 
     img1 = np.array(img1.convert('L'))
     img2 = np.array(img2.convert('L'))
